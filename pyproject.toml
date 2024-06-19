@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "userAuth"
+version = "0.1.0"
+description = "user authenticaion useing react and django"
+authors = ["mehedi23 <satusatusatu0@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+django = "^5.0.6"
+python-decouple = "^3.8"
+psycopg2 = "^2.9.9"
+pillow = "^10.3.0"
+djangorestframework = "^3.15.1"
+python-dotenv = "^1.0.1"
+django-environ = "^0.11.2"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

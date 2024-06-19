@@ -1,0 +1,31 @@
+services:
+  backend:
+    build:
+      context: ../
+      dockerfile: ./Docker/DockerFileBe
+    command: poetry run python manage.py runserver 0.0.0.0:8000
+    ports:
+      - "8000:8000"
+    volumes:
+      - ..:/app
+    depends_on:
+      - db
+    environment:
+      - PYTHONUNBUFFERED=1
+
+
+  db:
+    image: postgres:16.3
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5482:5432"
+    environment:
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB_HOST=${POSTGRES_HOST}
+
+
+volumes:
+  postgres_data:
